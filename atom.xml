@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://yanjiemao.github.io/blog</id>
+    <id>https://www.jianso.tech/blog</id>
     <title>CodeLab</title>
-    <updated>2021-02-08T14:22:22.983Z</updated>
+    <updated>2021-02-08T14:23:49.065Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://yanjiemao.github.io/blog"/>
-    <link rel="self" href="https://yanjiemao.github.io/blog/atom.xml"/>
+    <link rel="alternate" href="https://www.jianso.tech/blog"/>
+    <link rel="self" href="https://www.jianso.tech/blog/atom.xml"/>
     <subtitle>眼睫毛的CodeLab</subtitle>
-    <logo>https://yanjiemao.github.io/blog/images/avatar.png</logo>
-    <icon>https://yanjiemao.github.io/blog/favicon.ico</icon>
+    <logo>https://www.jianso.tech/blog/images/avatar.png</logo>
+    <icon>https://www.jianso.tech/blog/favicon.ico</icon>
     <rights>All rights reserved 2021, CodeLab</rights>
     <entry>
         <title type="html"><![CDATA[Hello World]]></title>
-        <id>https://yanjiemao.github.io/blog/post/hello-world/</id>
-        <link href="https://yanjiemao.github.io/blog/post/hello-world/">
+        <id>https://www.jianso.tech/blog/post/hello-world/</id>
+        <link href="https://www.jianso.tech/blog/post/hello-world/">
         </link>
         <updated>2021-02-08T13:59:17.000Z</updated>
         <summary type="html"><![CDATA[<p>眼睫毛的CodeLab诞生了！</p>

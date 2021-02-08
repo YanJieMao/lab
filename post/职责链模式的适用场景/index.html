@@ -1,0 +1,454 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>职责链模式的适用场景 | CodeLab</title>
+<link rel="shortcut icon" href="https://www.jianso.tech/blog/favicon.ico?v=1612797485754">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.jianso.tech/blog/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="职责链模式的适用场景 | CodeLab - Atom Feed" href="https://www.jianso.tech/blog/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+什么是职责链模式
+职责链模式（Chain of Responsibility），使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。
+UML图：
+..." />
+    <meta name="keywords" content="设计模式,职责链模式" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://www.jianso.tech/blog">
+  <img class="avatar" src="https://www.jianso.tech/blog/images/avatar.png?v=1612797485754" alt="">
+  </a>
+  <h1 class="site-title">
+    CodeLab
+  </h1>
+  <p class="site-description">
+    眼睫毛的CodeLab
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/blog/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/blog/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/blog/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/blog/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/blog/post/daily" class="menu">
+          流水账
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              职责链模式的适用场景
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-01-31
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="https://www.jianso.tech/blog/tag/m0q64nOzS/" class="post-tag">
+                  # 设计模式
+                </a>
+              
+                <a href="https://www.jianso.tech/blog/tag/L3A6SNRu_S/" class="post-tag">
+                  # 职责链模式
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <!-- more -->
+<h2 id="什么是职责链模式">什么是职责链模式</h2>
+<p>职责链模式（Chain of Responsibility），使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。</p>
+<p><strong>UML图：</strong></p>
+<figure data-type="image" tabindex="1"><img src="http://img.yanjiemao.top/webp" alt="img" loading="lazy"></figure>
+<p><strong>代码实现：</strong></p>
+<p>Handler类，定义一个处理请示的接口</p>
+<pre><code class="language-csharp">abstract class Handler{
+    protected Handler successor;
+    public void setSuccessor(Handler successor) {
+        this.successor = successor;
+    }
+    
+    // 处理请求的抽象方法
+    public abstract void HandlerRequest(int request);
+}
+</code></pre>
+<p>ConcreteHandler类，具体处理者类，处理它所负责的请求，可访问它的后继者，如果可处理该请求，就处理之，否则就将该请求转发给它的后继者</p>
+<pre><code class="language-java">/**
+ * ConcreteHandler1，请求数在0和10之间则有权处理，否则转到下一位
+ */
+class ConcreteHandler1 extends Handler{
+
+    @Override
+    public void HandlerRequest(int request) {
+        if (request &gt;= 0 &amp;&amp; request &lt; 10) {
+            System.out.println(&quot;ConcreteHandler1处理请求&quot;+request);
+        }else if(successor !=null){
+            successor.HandlerRequest(request);
+        }
+        
+    }
+    
+}
+
+/**
+ *  ConcreteHandler2，请求数在10和20之间则有权处理，否则转到下一位
+ */
+class ConcreteHandler2 extends Handler{
+
+    @Override
+    public void HandlerRequest(int request) {
+        if (request &gt;= 10 &amp;&amp; request &lt; 20) {
+            System.out.println(&quot;ConcreteHandler2处理请求&quot;+request);
+        }else if(successor !=null){
+            successor.HandlerRequest(request);
+        }
+        
+    }
+    
+}
+
+/**
+ *  ConcreteHandler3，请求数在20和30之间则有权处理，否则转到下一位
+ */
+class ConcreteHandler3 extends Handler{
+
+    @Override
+    public void HandlerRequest(int request) {
+        if (request &gt;= 20 &amp;&amp; request &lt; 30) {
+            System.out.println(&quot;ConcreteHandler3处理请求&quot;+request);
+        }else if(successor !=null){
+            successor.HandlerRequest(request);
+        }
+        
+    }
+    
+}
+</code></pre>
+<p>客户端代码</p>
+<pre><code class="language-cpp">public class ChainOfResponsibilityPattern {
+    
+    public static void main(String[] args) {
+        Handler h1 = new ConcreteHandler1();
+        Handler h2 = new ConcreteHandler2();
+        Handler h3 = new ConcreteHandler3();
+        
+        h1.setSuccessor(h2);
+        h2.setSuccessor(h3);
+        
+        int[] requests = {2,5,14,22,18,3,27,20};
+        for (int i = 0; i &lt; requests.length; i++) {
+            h1.HandlerRequest(requests[i]);
+        }
+    }
+
+}
+</code></pre>
+<p>运行结果</p>
+<pre><code class="language-undefined">ConcreteHandler1处理请求2
+ConcreteHandler1处理请求5
+ConcreteHandler2处理请求14
+ConcreteHandler3处理请求22
+ConcreteHandler2处理请求18
+ConcreteHandler1处理请求3
+ConcreteHandler3处理请求27
+ConcreteHandler3处理请求20
+</code></pre>
+<h2 id="示例">示例</h2>
+<p>在公司无论办什么事情都要走流程，一级一级审批。如果我们想请假，两天以内部门经理就可以批准，如果超过两天，五天以内总监有权限批准，五天以上就需要总经理批准了。如果我们想加薪就只能总经理审批。用程序模拟这个过程。</p>
+<p><strong>UML图：</strong></p>
+<figure data-type="image" tabindex="2"><img src="http://img.yanjiemao.top/webp-20210131231653541" alt="img" loading="lazy"></figure>
+<p>职责链模式示例UML图.png</p>
+<p><strong>代码实现：</strong></p>
+<p>申请</p>
+<pre><code class="language-cpp">public class Request {
+    // 申请类别
+    private String requestType;
+    // 申请内容
+    private String requestContent;
+    // 申请数量
+    private int number;
+    public String getRequestType() {
+        return requestType;
+    }
+    public void setRequestType(String requestType) {
+        this.requestType = requestType;
+    }
+    public String getRequestContent() {
+        return requestContent;
+    }
+    public void setRequestContent(String requestContent) {
+        this.requestContent = requestContent;
+    }
+    public int getNumber() {
+        return number;
+    }
+    public void setNumber(int number) {
+        this.number = number;
+    }
+    
+}
+</code></pre>
+<p>管理者</p>
+<pre><code class="language-csharp">public abstract class Manager {
+
+    protected String name;
+    //管理者的上级
+    protected Manager superior;
+    public Manager(String name){
+        this.name = name;
+    }
+    
+    public void setSuperior(Manager superior) {
+        this.superior = superior;
+    }
+    
+    public abstract void RequestApplicatios(Request request);
+}
+</code></pre>
+<p>总经理类</p>
+<pre><code class="language-java">public class CommonManager extends Manager{
+
+    public CommonManager(String name) {
+        super(name);
+    }
+
+    @Override
+    public void RequestApplicatios(Request request) {
+        // 经理的权限就是可准许下两天以内的假期
+        if(request.getRequestType().equals(&quot;请假&quot;) &amp;&amp; request.getNumber()&lt;=2){
+            System.out.println(name+&quot;:&quot;+request.getRequestContent()+&quot; 数量&quot;+request.getNumber()+&quot;被批准&quot;);
+        }
+        // 其余的申请都需转到上级
+        else{
+            if(superior!=null){
+                superior.RequestApplicatios(request);
+            }
+        }
+    }
+
+}
+</code></pre>
+<p>总监类</p>
+<pre><code class="language-java">public class Majordomo extends Manager{
+
+    public Majordomo(String name) {
+        super(name);
+    }
+
+    @Override
+    public void RequestApplicatios(Request request) {
+        // 经理的权限就是可准许下属一周以内的假期
+        if(request.getRequestType().equals(&quot;请假&quot;) &amp;&amp; request.getNumber()&lt;=5){
+            System.out.println(name+&quot;:&quot;+request.getRequestContent()+&quot; 数量&quot;+request.getNumber()+&quot;被批准&quot;);
+        }
+        // 其余的申请都需转到上级
+        else{
+            if(superior!=null){
+                superior.RequestApplicatios(request);
+            }
+        }
+    }
+
+}
+</code></pre>
+<p>总经理类，可以处理全部任何事情</p>
+<pre><code class="language-csharp">public class GeneralManager extends Manager{
+
+    public GeneralManager(String name) {
+        super(name);
+    }
+
+    @Override
+    public void RequestApplicatios(Request request) {
+        if(request.getRequestType().equals(&quot;请假&quot;)){
+            System.out.println(name+&quot;:&quot;+request.getRequestContent()+&quot; 数量&quot;+request.getNumber()+&quot;被批准&quot;);
+        }
+        else if(request.getRequestType().equals(&quot;加薪&quot;) &amp;&amp; request.getNumber() &lt;= 500){
+            System.out.println(name+&quot;:&quot;+request.getRequestContent()+&quot; 数量&quot;+request.getNumber()+&quot;被批准&quot;);
+        }
+        else if(request.getRequestType().equals(&quot;加薪&quot;) &amp;&amp; request.getNumber() &gt; 500){
+            System.out.println(name+&quot;:&quot;+request.getRequestContent()+&quot; 数量&quot;+request.getNumber()+&quot;再说吧&quot;);
+        }
+    }
+
+}
+</code></pre>
+<p>客户端代码</p>
+<pre><code class="language-cpp">public class Main {
+    
+    public static void main(String[] args) {
+        CommonManager jingli = new CommonManager(&quot;经理&quot;);
+        Majordomo zongjian = new Majordomo(&quot;总监&quot;);
+        GeneralManager zongjingli = new GeneralManager(&quot;总经理&quot;);
+        jingli.setSuperior(zongjian);
+        zongjian.setSuperior(zongjingli);
+        
+        Request request = new Request();
+        request.setRequestType(&quot;请假&quot;);
+        request.setRequestContent(&quot;小明请假&quot;);
+        request.setNumber(1);
+        jingli.RequestApplicatios(request);
+        
+        Request request2 = new Request();
+        request2.setRequestType(&quot;请假&quot;);
+        request2.setRequestContent(&quot;小明请假&quot;);
+        request2.setNumber(4);
+        jingli.RequestApplicatios(request2);
+        
+        Request request3 = new Request();
+        request3.setRequestType(&quot;加薪&quot;);
+        request3.setRequestContent(&quot;小明请求加薪&quot;);
+        request3.setNumber(500);
+        jingli.RequestApplicatios(request3);
+        
+        Request request4 = new Request();
+        request4.setRequestType(&quot;加薪&quot;);
+        request4.setRequestContent(&quot;小明请求加薪&quot;);
+        request4.setNumber(1000);
+        jingli.RequestApplicatios(request4);
+    }
+
+}
+</code></pre>
+<p>运行结果</p>
+<pre><code class="language-undefined">经理:小明请假 数量1被批准
+总监:小明请假 数量4被批准
+总经理:小明请求加薪 数量500被批准
+总经理:小明请求加薪 数量1000再说吧
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>责任链中一个处理者对象，其中只有两个行为，一是处理请求，二是将请求转送给下一个节点，不允许某个处理者对象在处理了请求后又将请求转送给上一个节点的情况。对于一条责任链来说，一个请求最终只有两种情况，一是被某个处理对象所处理，另一个是所有对象均未对其处理，前一种情况称该责任链为纯的责任链，对于后一种情况称为不纯的责任链，实际应用中，多为不纯的责任链。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F">什么是职责链模式</a></li>
+<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://www.jianso.tech/blog/post/工厂模式的适用场景/">
+              <h3 class="post-title">
+                工厂模式的适用场景
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">&nbspGridea&nbsp  </a>  On GitHub Pages
+  <a class="rss" href="https://www.jianso.tech/blog/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

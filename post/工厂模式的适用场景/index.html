@@ -1,0 +1,373 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>工厂模式的适用场景 | CodeLab</title>
+<link rel="shortcut icon" href="https://www.jianso.tech/blog/favicon.ico?v=1612797485754">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.jianso.tech/blog/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="工厂模式的适用场景 | CodeLab - Atom Feed" href="https://www.jianso.tech/blog/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="什么是工厂模式
+工厂顾名思义就是创建产品，根据产品是具体产品还是具体工厂可分为简单工厂模式和工厂方法模式，根据工厂的抽象程度可分为工厂方法模式和抽象工厂模式。该模式用于封装和管理对象的创建，是一种创建型模式。本文从一个具体的例子逐步深入分析..." />
+    <meta name="keywords" content="设计模式,工厂模式" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://www.jianso.tech/blog">
+  <img class="avatar" src="https://www.jianso.tech/blog/images/avatar.png?v=1612797485754" alt="">
+  </a>
+  <h1 class="site-title">
+    CodeLab
+  </h1>
+  <p class="site-description">
+    眼睫毛的CodeLab
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/blog/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/blog/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/blog/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/blog/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/blog/post/daily" class="menu">
+          流水账
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              工厂模式的适用场景
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-01-31
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://www.jianso.tech/blog/tag/m0q64nOzS/" class="post-tag">
+                  # 设计模式
+                </a>
+              
+                <a href="https://www.jianso.tech/blog/tag/8jVqGT19Ij/" class="post-tag">
+                  # 工厂模式
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="什么是工厂模式">什么是工厂模式</h2>
+<p>工厂顾名思义就是创建产品，根据产品是具体产品还是具体工厂可分为简单工厂模式和工厂方法模式，根据工厂的抽象程度可分为工厂方法模式和抽象工厂模式。该模式用于封装和管理对象的创建，是一种创建型模式。本文从一个具体的例子逐步深入分析，来体会三种工厂模式的应用场景和利弊。</p>
+<h2 id="简单工厂模式">简单工厂模式</h2>
+<p>该模式对对象创建管理方式最为简单，因为其仅仅简单的对不同类对象的创建进行了一层薄薄的封装。该模式通过向工厂传递类型来指定要创建的对象，其UML类图如下：</p>
+<figure data-type="image" tabindex="1"><img src="http://img.yanjiemao.top/1419489-20190628144601084-563759643.png" alt="img" loading="lazy"></figure>
+<p>下面我们使用手机生产来讲解该模式：</p>
+<p><strong>Phone类</strong>：手机标准规范类(AbstractProduct)</p>
+<pre><code>public interface Phone {
+    void make();
+}
+</code></pre>
+<p><strong>MiPhone类</strong>：制造小米手机（Product1）</p>
+<pre><code>public class MiPhone implements Phone {
+    public MiPhone() {
+        this.make();
+    }
+    @Override
+    public void make() {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;make xiaomi phone!&quot;);
+    }
+}
+</code></pre>
+<p><strong>IPhone类</strong>：制造苹果手机（Product2）</p>
+<pre><code>public class IPhone implements Phone {
+    public IPhone() {
+        this.make();
+    }
+    @Override
+    public void make() {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;make iphone!&quot;);
+    }
+}
+</code></pre>
+<p><strong>PhoneFactory类</strong>：手机代工厂（Factory）</p>
+<pre><code>public class PhoneFactory {
+    public Phone makePhone(String phoneType) {
+        if(phoneType.equalsIgnoreCase(&quot;MiPhone&quot;)){
+            return new MiPhone();
+        }
+        else if(phoneType.equalsIgnoreCase(&quot;iPhone&quot;)) {
+            return new IPhone();
+        }
+        return null;
+    }
+}
+</code></pre>
+<p><strong>演示：</strong></p>
+<pre><code>public class Demo {
+    public static void main(String[] arg) {
+        PhoneFactory factory = new PhoneFactory();
+        Phone miPhone = factory.makePhone(&quot;MiPhone&quot;);            // make xiaomi phone!
+        IPhone iPhone = (IPhone)factory.makePhone(&quot;iPhone&quot;);    // make iphone!
+    }
+}
+</code></pre>
+<h2 id="工厂方法模式factory-method">工厂方法模式(Factory Method)</h2>
+<p>和简单工厂模式中工厂负责生产所有产品相比，工厂方法模式将生成具体产品的任务分发给具体的产品工厂，其UML类图如下：</p>
+<figure data-type="image" tabindex="2"><img src="http://img.yanjiemao.top/1419489-20190628154133368-906051111-20210131225339435.png" alt="img" loading="lazy"></figure>
+<p>也就是定义一个抽象工厂，其定义了产品的生产接口，但不负责具体的产品，将生产任务交给不同的派生类工厂。这样不用通过指定类型来创建对象了。</p>
+<p>接下来继续使用生产手机的例子来讲解该模式。</p>
+<p>其中和产品相关的Phone类、MiPhone类和IPhone类的定义不变。</p>
+<p><strong>AbstractFactory类</strong>：生产不同产品的工厂的抽象类</p>
+<pre><code>public interface AbstractFactory {
+    Phone makePhone();
+}
+</code></pre>
+<p><strong>XiaoMiFactory类</strong>：生产小米手机的工厂（ConcreteFactory1）</p>
+<pre><code>public class XiaoMiFactory implements AbstractFactory{
+    @Override
+    public Phone makePhone() {
+        return new MiPhone();
+    }
+}
+</code></pre>
+<p><strong>AppleFactory类</strong>：生产苹果手机的工厂（ConcreteFactory2）</p>
+<pre><code>public class AppleFactory implements AbstractFactory {
+    @Override
+    public Phone makePhone() {
+        return new IPhone();
+    }
+}
+</code></pre>
+<p><strong>演示：</strong></p>
+<pre><code>public class Demo {
+    public static void main(String[] arg) {
+        AbstractFactory miFactory = new XiaoMiFactory();
+        AbstractFactory appleFactory = new AppleFactory();
+        miFactory.makePhone();            // make xiaomi phone!
+        appleFactory.makePhone();        // make iphone!
+    }
+}
+</code></pre>
+<h2 id="抽象工厂模式abstract-factory">抽象工厂模式(Abstract Factory)</h2>
+<p>上面两种模式不管工厂怎么拆分抽象，都只是针对一类产品<strong>Phone</strong>（AbstractProduct），如果要生成另一种产品PC，应该怎么表示呢？</p>
+<p>最简单的方式是把2中介绍的工厂方法模式完全复制一份，不过这次生产的是PC。但同时也就意味着我们要完全复制和修改Phone生产管理的所有代码，显然这是一个笨办法，并不利于扩展和维护。</p>
+<p>抽象工厂模式通过在AbstarctFactory中增加创建产品的接口，并在具体子工厂中实现新加产品的创建，当然前提是子工厂支持生产该产品。否则继承的这个接口可以什么也不干。</p>
+<p>其UML类图如下：</p>
+<figure data-type="image" tabindex="3"><img src="http://img.yanjiemao.top/1419489-20190628170705865-1781414242-20210131225348749.png" alt="img" loading="lazy"></figure>
+<p>从上面类图结构中可以清楚的看到如何在工厂方法模式中通过增加新产品接口来实现产品的增加的。</p>
+<p>接下来我们继续通过小米和苹果产品生产的例子来解释该模式。</p>
+<p>为了弄清楚上面的结构，我们使用具体的产品和工厂来表示上面的UML类图，能更加清晰的看出模式是如何演变的：</p>
+<figure data-type="image" tabindex="4"><img src="http://img.yanjiemao.top/1419489-20190628164001258-637961514-20210131225353537.png" alt="img" loading="lazy"></figure>
+<p><strong>PC类</strong>：定义PC产品的接口(AbstractPC)</p>
+<pre><code>public interface PC {
+    void make();
+}
+</code></pre>
+<p><strong>MiPC类</strong>：定义小米电脑产品(MIPC)</p>
+<pre><code>public class MiPC implements PC {
+    public MiPC() {
+        this.make();
+    }
+    @Override
+    public void make() {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;make xiaomi PC!&quot;);
+    }
+}
+</code></pre>
+<p><strong>MAC类</strong>：定义苹果电脑产品(MAC)</p>
+<pre><code>public class MAC implements PC {
+    public MAC() {
+        this.make();
+    }
+    @Override
+    public void make() {
+        // TODO Auto-generated method stub
+        System.out.println(&quot;make MAC!&quot;);
+    }
+}
+</code></pre>
+<p>下面需要修改工厂相关的类的定义：</p>
+<p><strong>AbstractFactory类</strong>：增加PC产品制造接口</p>
+<pre><code>public interface AbstractFactory {
+    Phone makePhone();
+    PC makePC();
+}
+</code></pre>
+<p><strong>XiaoMiFactory类</strong>：增加小米PC的制造（ConcreteFactory1）</p>
+<pre><code>public class XiaoMiFactory implements AbstractFactory{
+    @Override
+    public Phone makePhone() {
+        return new MiPhone();
+    }
+    @Override
+    public PC makePC() {
+        return new MiPC();
+    }
+}
+</code></pre>
+<p><strong>AppleFactory类</strong>：增加苹果PC的制造（ConcreteFactory2）</p>
+<pre><code>public class AppleFactory implements AbstractFactory {
+    @Override
+    public Phone makePhone() {
+        return new IPhone();
+    }
+    @Override
+    public PC makePC() {
+        return new MAC();
+    }
+}
+</code></pre>
+<p><strong>演示：</strong></p>
+<pre><code>public class Demo {
+    public static void main(String[] arg) {
+        AbstractFactory miFactory = new XiaoMiFactory();
+        AbstractFactory appleFactory = new AppleFactory();
+        miFactory.makePhone();            // make xiaomi phone!
+        miFactory.makePC();                // make xiaomi PC!
+        appleFactory.makePhone();        // make iphone!
+        appleFactory.makePC();            // make MAC!
+    }
+}
+</code></pre>
+<h3 id="总结">总结：</h3>
+<p>上面介绍的三种工厂模式有各自的应用场景，实际应用时能解决问题满足需求即可，可灵活变通，无所谓高级与低级。</p>
+<p>此外无论哪种模式，它们都有一个共同的特点，最终得有一个具体的工厂来负责处理，工厂模式适用于处理，条件简单且确定的情况</p>
+<p>当情况变得不确定且复杂就要考虑换用其他模式。</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">什么是工厂模式</a></li>
+<li><a href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">简单工厂模式</a></li>
+<li><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8Ffactory-method">工厂方法模式(Factory Method)</a></li>
+<li><a href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8Fabstract-factory">抽象工厂模式(Abstract Factory)</a>
+<ul>
+<li><a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://www.jianso.tech/blog/post/从kubectkl创建一个pod的过程/">
+              <h3 class="post-title">
+                从kubectkl创建一个pod的过程
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">&nbspGridea&nbsp  </a>  On GitHub Pages
+  <a class="rss" href="https://www.jianso.tech/blog/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

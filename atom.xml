@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://www.jianso.tech/lab</id>
+    <id>http://localhost:4000</id>
     <title>CodeLab</title>
-    <updated>2021-03-11T15:44:54.211Z</updated>
+    <updated>2021-03-11T15:45:28.890Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://www.jianso.tech/lab"/>
-    <link rel="self" href="http://www.jianso.tech/lab/atom.xml"/>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
     <subtitle>眼睫毛的CodeLab</subtitle>
-    <logo>http://www.jianso.tech/lab/images/avatar.png</logo>
-    <icon>http://www.jianso.tech/lab/favicon.ico</icon>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
     <rights>All rights reserved 2021, CodeLab</rights>
     <entry>
         <title type="html"><![CDATA[Hello World]]></title>
-        <id>http://www.jianso.tech/lab/post/hello-world/</id>
-        <link href="http://www.jianso.tech/lab/post/hello-world/">
+        <id>http://localhost:4000/post/hello-world/</id>
+        <link href="http://localhost:4000/post/hello-world/">
         </link>
         <updated>2021-02-08T13:59:17.000Z</updated>
         <summary type="html"><![CDATA[<p>眼睫毛的CodeLab诞生了！</p>
@@ -27,8 +27,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[职责链模式的适用场景]]></title>
-        <id>http://www.jianso.tech/lab/post/职责链模式的适用场景/</id>
-        <link href="http://www.jianso.tech/lab/post/职责链模式的适用场景/">
+        <id>http://localhost:4000/post/职责链模式的适用场景/</id>
+        <link href="http://localhost:4000/post/职责链模式的适用场景/">
         </link>
         <updated>2021-01-31T07:05:29.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
@@ -298,8 +298,8 @@ ConcreteHandler3处理请求20
     </entry>
     <entry>
         <title type="html"><![CDATA[工厂模式的适用场景]]></title>
-        <id>http://www.jianso.tech/lab/post/工厂模式的适用场景/</id>
-        <link href="http://www.jianso.tech/lab/post/工厂模式的适用场景/">
+        <id>http://localhost:4000/post/工厂模式的适用场景/</id>
+        <link href="http://localhost:4000/post/工厂模式的适用场景/">
         </link>
         <updated>2021-01-31T06:46:47.000Z</updated>
         <content type="html"><![CDATA[<h2 id="什么是工厂模式">什么是工厂模式</h2>
@@ -486,8 +486,8 @@ ConcreteHandler3处理请求20
     </entry>
     <entry>
         <title type="html"><![CDATA[从kubectkl创建一个pod的过程]]></title>
-        <id>http://www.jianso.tech/lab/post/从kubectkl创建一个pod的过程/</id>
-        <link href="http://www.jianso.tech/lab/post/从kubectkl创建一个pod的过程/">
+        <id>http://localhost:4000/post/从kubectkl创建一个pod的过程/</id>
+        <link href="http://localhost:4000/post/从kubectkl创建一个pod的过程/">
         </link>
         <updated>2021-01-22T05:51:21.000Z</updated>
         <content type="html"><![CDATA[<h2 id="kubectl">kubectl</h2>
@@ -743,8 +743,8 @@ initializers:
     </entry>
     <entry>
         <title type="html"><![CDATA[vue]]></title>
-        <id>http://www.jianso.tech/lab/post/vue/</id>
-        <link href="http://www.jianso.tech/lab/post/vue/">
+        <id>http://localhost:4000/post/vue/</id>
+        <link href="http://localhost:4000/post/vue/">
         </link>
         <updated>2020-08-17T16:00:00.000Z</updated>
         <content type="html"><![CDATA[<h1 id="1vue-概述">1.vue 概述</h1>
@@ -1713,8 +1713,8 @@ template:&quot;&lt;li&gt;{{index+1}},{{item}}&lt;/li&gt;&quot;
     </entry>
     <entry>
         <title type="html"><![CDATA[CSS3]]></title>
-        <id>http://www.jianso.tech/lab/post/CSS3/</id>
-        <link href="http://www.jianso.tech/lab/post/CSS3/">
+        <id>http://localhost:4000/post/CSS3/</id>
+        <link href="http://localhost:4000/post/CSS3/">
         </link>
         <updated>2020-08-09T16:00:00.000Z</updated>
         <content type="html"><![CDATA[<h1 id="1什么是css">1.什么是CSS</h1>
@@ -2642,8 +2642,8 @@ ui,li{
     </entry>
     <entry>
         <title type="html"><![CDATA[HTML5]]></title>
-        <id>http://www.jianso.tech/lab/post/HTML5/</id>
-        <link href="http://www.jianso.tech/lab/post/HTML5/">
+        <id>http://localhost:4000/post/HTML5/</id>
+        <link href="http://localhost:4000/post/HTML5/">
         </link>
         <updated>2020-08-04T16:00:00.000Z</updated>
         <content type="html"><![CDATA[<h1 id="html5">HTML5</h1>
@@ -3069,8 +3069,8 @@ input type=&quot;file&quot;
     </entry>
     <entry>
         <title type="html"><![CDATA[JavaScript]]></title>
-        <id>http://www.jianso.tech/lab/post/JavaScript/</id>
-        <link href="http://www.jianso.tech/lab/post/JavaScript/">
+        <id>http://localhost:4000/post/JavaScript/</id>
+        <link href="http://localhost:4000/post/JavaScript/">
         </link>
         <updated>2020-08-04T16:00:00.000Z</updated>
         <content type="html"><![CDATA[<h2 id="1什么是javascript">1.什么是JavaScript</h2>

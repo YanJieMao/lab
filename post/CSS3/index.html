@@ -1,0 +1,1167 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CSS3 | CodeLab</title>
+<link rel="shortcut icon" href="https://www.jianso.tech/lab/favicon.ico?v=1615476574811">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.jianso.tech/lab/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="CSS3 | CodeLab - Atom Feed" href="https://www.jianso.tech/lab/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="1.什么是CSS
+1.1、什么是CSS
+Csscading Style Sheet 层叠级联样式表
+CSS：表现（美化网页）
+字体 、颜色、边距、高度、宽度、背景图片、网页定位、网页浮动···
+1.2、发展史
+CSS 1.0
+CSS 2.0..." />
+    <meta name="keywords" content="CSS,前端" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://www.jianso.tech/lab">
+  <img class="avatar" src="https://www.jianso.tech/lab/images/avatar.png?v=1615476574811" alt="">
+  </a>
+  <h1 class="site-title">
+    CodeLab
+  </h1>
+  <p class="site-description">
+    眼睫毛的CodeLab
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/lab/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/lab/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/lab/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/lab/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/lab/post/daily" class="menu">
+          流水账
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              CSS3
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-08-10
+              </span>
+              <span>
+                19 min read
+              </span>
+              
+                <a href="https://www.jianso.tech/lab/tag/JXQR7zp-R/" class="post-tag">
+                  # CSS
+                </a>
+              
+                <a href="https://www.jianso.tech/lab/tag/KqPQyzrFU3/" class="post-tag">
+                  # 前端
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="1什么是css">1.什么是CSS</h1>
+<h2 id="11-什么是css">1.1、什么是CSS</h2>
+<p>Csscading Style Sheet 层叠级联样式表</p>
+<p>CSS：表现（美化网页）</p>
+<p>字体 、颜色、边距、高度、宽度、背景图片、网页定位、网页浮动···</p>
+<h2 id="12-发展史">1.2、发展史</h2>
+<p>CSS 1.0</p>
+<p>CSS 2.0  DiV (块) +CSS，HTML与CSS结构分离的思想，   网页变得简单 、seo</p>
+<p>CSS 2.1  浮动 定位</p>
+<p>CSS 3.0  圆角 阴影，动画···</p>
+<h2 id="13-快速入门">1.3 、快速入门</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;!--规范，&lt;style&gt;可以编写css的代码
+    语法：
+        选择器｛
+            声明1；
+            声明2；
+            声明3;
+
+        ｝
+    --&gt;
+   &lt;style&gt;
+   		h1{
+   		 color: aqua;
+	}
+   &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt; 我是标题 &lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>建议用链接方式</p>
+<figure data-type="image" tabindex="1"><img src="http://img.yanjiemao.top/image-20200820102938427.png" alt="image-20200820102938427" loading="lazy"></figure>
+<p>CSS的优势</p>
+<ol>
+<li>内容和表现分离</li>
+<li>网页结构表现统一，可以实现复用</li>
+<li>样式十分丰富</li>
+<li>建议使用独立于HTML的CSS文件</li>
+<li>利用SEO，容易被搜索引擎收录</li>
+</ol>
+<h2 id="14-css的四种导入方式">1.4 、CSS的四种导入方式</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+
+
+&lt;!--内部样式--&gt;
+    &lt;style&gt;
+        h1{
+            color: green;
+        }
+
+    &lt;/style&gt;
+    &lt;!--外部样式--&gt;
+    &lt;link rek=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--优先级，就近原则--&gt;
+&lt;!--行内样式：在标签元素中，编写一个Style属性，编写样式即可--&gt;
+&lt;h1 style=&quot;color:red&quot;&gt;我是标题&lt;/h1&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>拓展 ： 外部样式两种写法</p>
+<ul>
+<li>
+<p>链接式</p>
+<pre><code class="language-html">&lt;!--外部样式--&gt;
+    &lt;link rek=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+</code></pre>
+</li>
+<li>
+<p>导入式-不推荐</p>
+<p>css 2.1特有的</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;!--导入式--&gt;
+   &lt;style&gt;
+       @import url(&quot;css/style.css&quot;);
+   &lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p>就结论而言，强烈建议使用<code>link</code>标签，慎用<code>@import</code>方式。<br>
+这样可以避免考虑<code>@import</code>的语法规则和注意事项，避免产生资源文件下载顺序混乱和http请求过多的烦恼。</p>
+<h4 id="区别">区别</h4>
+<p><strong>1.从属关系区别</strong><br>
+<code>@import</code>是 CSS 提供的语法规则，只有导入样式表的作用；<code>link</code>是HTML提供的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等。</p>
+<p><strong>2.加载顺序区别</strong><br>
+加载页面时，<code>link</code>标签引入的 CSS 被同时加载；<code>@import</code>引入的 CSS 将在页面加载完毕后被加载。</p>
+<p><strong>3.兼容性区别</strong><br>
+<code>@import</code>是 CSS2.1 才有的语法，故只可在 IE5+ 才能识别；<code>link</code>标签作为 HTML 元素，不存在兼容性问题。</p>
+<p><strong>4.DOM可控性区别</strong><br>
+可以通过 JS 操作 DOM ，插入<code>link</code>标签来改变样式；由于 DOM 方法是基于文档的，无法使用<code>@import</code>的方式插入样式。</p>
+<p><strong>5.权重区别(该项有争议，下文将详解)</strong><br>
+<code>link</code>引入的样式权重大于<code>@import</code>引入的样式。</p>
+<h1 id="2选择器">2.选择器</h1>
+<blockquote>
+<p>作用：选择页面上的某一个或者某一类元素</p>
+</blockquote>
+<h2 id="21-基本选择器">2.1、基本选择器</h2>
+<ol>
+<li>
+<p>标签选择器 ：选择一类标签 标签｛｝</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        h1{
+            color: green;
+        }
+        P{
+            color: red;
+        }
+    &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;hao&lt;/h1&gt;
+&lt;p&gt;so&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>类选择器 class：选中所有class属性一致的标签，跨标签 .类名｛｝</p>
+<pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+    /*类选择器的格式 .class的名称｛｝
+    好处，可以多个标签归类，是同一个class，可以复用
+
+    */
+    .hao{
+        color: green;
+
+    }
+    .li{
+        color: red;
+
+    }
+
+    &lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;h1 class=&quot;hao&quot;&gt;标题1&lt;/h1&gt;
+&lt;h1 class=&quot;li&quot;&gt;标题2&lt;/h1&gt;
+&lt;h1 class=&quot;hao&quot;&gt;标题3&lt;/h1&gt;
+&lt;p class=&quot;hao&quot;&gt;p标签&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+</li>
+<li>
+<p>ID选择器：全局唯一 #id名{}</p>
+<pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+   &lt;style&gt;
+       /* id选择器 :id全局唯一
+        #id名称{}
+        不遵循就近原则，固定的
+        id选择器&gt; class选择器&gt; 标签选择器
+        */
+       #hao{
+           color: green;
+       }
+       .style1{
+           color: red;
+       }
+   &lt;/style&gt;
+
+
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 id=&quot;hao&quot;&gt;标题1&lt;/h1&gt;
+&lt;h1 class=&quot;style1&quot;&gt;标题2&lt;/h1&gt;
+&lt;h1 class=&quot;style1&quot;&gt;标题3&lt;/h1&gt;
+&lt;h1 id=&quot;liu&quot;&gt;标题4&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<p>优先级 id选择器&gt; class选择器&gt; 标签选择器</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="22-层次选择器">2.2、层次选择器</h2>
+<ol>
+<li>
+<p>后代选择器 ：在某个元素的后面  祖爷爷  爷爷  爸爸 儿子</p>
+<pre><code class="language-css">/*后代选择器*/
+body p{
+    background: red;
+}
+</code></pre>
+</li>
+<li>
+<p>子选择器，一代 儿子</p>
+<pre><code class="language-css">/*子选择器*/
+body&gt;p{
+    background: aqua;
+}
+</code></pre>
+</li>
+<li>
+<p>相邻兄弟选择器 同辈</p>
+<pre><code class="language-css">/*相邻兄弟选择器：只有一个，相邻（向下）*/
+.active+p{
+    background: blue;
+
+}
+</code></pre>
+</li>
+<li>
+<p>通用选择器</p>
+<pre><code class="language-css">/* 通用兄弟选择器，当前向下元素的所有兄弟*/
+.active~p{
+    background: brown;
+}
+
+</code></pre>
+</li>
+</ol>
+<h2 id="23-结构伪类选择器">2.3、结构伪类选择器</h2>
+<p>伪类： 条件</p>
+<pre><code class="language-css">/*ul的第一个子元素*/
+
+ul li:first-child{
+  background: brown;
+}
+
+/*ul的最后一个子元素*/
+ul li:last-child{
+  background: brown;
+}
+
+/* 只选中p1：定位到父元素，选择当前的第一个元素
+选择当前p元素的父级元素，选中父级元素的第一个，并且是当前元素才生效！*/
+p:nth-child(1){
+  background: green;
+}
+
+/*选中父元素下的p元素的第二个*/
+p:nth-of-type(2){
+  background: blue;
+}
+
+</code></pre>
+<h2 id="24-属性选择器常用">2.4、属性选择器（常用）</h2>
+<p>id + class 结合</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+
+    &lt;style&gt;
+      .demo a{
+        float: left;
+        display: block;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+        background: green;
+        text-align: center;
+        text-decoration: none;
+        color: darkgray;
+        margin-right:5px;
+        font:bold 20px/50px Arial;
+      }
+      /*属性名，属性名 = 属性值（正则）
+      = 绝对等于
+      *= 包含这个元素
+      ^=以这个开头
+      $=以这个结尾
+      */
+      /*存在id属性的元素a[]{}*/
+
+      /*id=firsr的元素*/
+      /*a[id=first]{*/
+      /*    background: yellow;*/
+
+      /*}*/
+      /*class中有links的元素 */
+      /*a[class*=&quot;links&quot;]{*/
+      /*    background: yellow;*/
+      /*}*/
+
+      /*选中href中以http开头的元素*/
+      /*a[href^=http]{*/
+      /*    background: yellow;*/
+      /*}*/
+      /*选中以$结尾的元素*/
+      a[href$=pdf]{
+        background: yellow;
+      }
+
+
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;p class=&quot;demo&quot;&gt;
+      &lt;a href=&quot;http://www.baidu.com&quot; class=&quot;links item first&quot; id=&quot;first&quot;&gt;1&lt;/a&gt;
+      &lt;a href=&quot;&quot; class=&quot;links item active&quot; target=&quot;_blank&quot;&gt;2&lt;/a&gt;
+      &lt;a href=&quot;image/123.html&quot;class=&quot;links item&quot;&gt;3&lt;/a&gt;
+      &lt;a href=&quot;image/123.png&quot; class=&quot;links item&quot;&gt;4&lt;/a&gt;
+      &lt;a href=&quot;abc&quot; class=&quot;links item&quot;&gt;5&lt;/a&gt;
+      &lt;a href=&quot;/a.pdf&quot; class=&quot;links item&quot;&gt;6&lt;/a&gt;
+      &lt;a href=&quot;/abc.pdf&quot;class=&quot;links item&quot;&gt;7&lt;/a&gt;
+      &lt;a href=&quot;abc.doc&quot; class=&quot;links item&quot;&gt;8&lt;/a&gt;
+      &lt;a href=&quot;abcd.doc&quot; class=&quot;links item last&quot;&gt;9&lt;/a&gt;
+
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="http://img.yanjiemao.top/image-20200821105658195.png" alt="image-20200821105658195" loading="lazy"></figure>
+<pre><code>=
+*=
+^=
+$=
+</code></pre>
+<h1 id="3美化网页元素">3.美化网页元素</h1>
+<h2 id="31-为什么要美化网页">3.1、为什么要美化网页</h2>
+<ol>
+<li>有效传递页面信息</li>
+<li>美化网页，页面漂亮，才能吸引用户</li>
+<li>凸显页面主题</li>
+<li>提高用户体验</li>
+</ol>
+<p>span便签: 重点要突出的字，使用span标签</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+      #title1{
+        font-size: 50px;
+
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    欢迎学习 &lt;span id=&quot;title1&quot;&gt;java&lt;/span&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="32-字体样式">3.2、字体样式</h2>
+<pre><code class="language-html">&lt;!--
+font-family:字体
+font-size: 字体大小
+font-weight:字体粗细
+color :字体颜色
+
+--&gt;
+&lt;style&gt;
+
+  body{
+    font-family:&quot;Arial Black&quot; 楷体;
+    color: brown;
+  }
+  h1{
+    font-size: 50px;
+  }
+  .p1{
+    font-weight: bold;
+  }
+&lt;/style&gt;
+</code></pre>
+<h2 id="33-文本样式">3.3、文本样式</h2>
+<ol>
+<li>颜色 color rgb rgba</li>
+<li><strong>文本对齐方式  text-align = center</strong></li>
+<li><strong>首行缩进 text-indent:2em</strong></li>
+<li><strong>行高 line-height: 单行文字上下居中  line-height=height</strong></li>
+<li>装饰  text-decoration</li>
+<li>文本水平对齐：vertical-align:middle</li>
+</ol>
+<h2 id="34-阴影">3.4、阴影</h2>
+<pre><code class="language-css">/*text-shadow:阴影颜色，水平偏移，垂直偏移，阴影半径*/
+#price{
+  text-shadow:#blue 10px -10px 2px;
+}
+
+</code></pre>
+<h2 id="35-超链接伪类">3.5、超链接伪类</h2>
+<p>正常情况下，a, a:hover</p>
+<pre><code class="language-css">/*默认的颜色*/
+a{
+text-decoration: none;
+color: blue;
+}
+/*鼠标悬浮的颜色只需要记住hover*/
+a:hover{
+color: yellow;
+font-size: 50px;
+
+}
+/*鼠标按住未释放*/
+a:active{
+color: brown;
+}
+</code></pre>
+<h2 id="36-列表">3.6、列表</h2>
+<pre><code class="language-css">/*ul li*/
+/*
+list-style:
+    none:去掉圆点
+    circle：空心圆
+    decimal:数字
+    squar:正方形
+*/
+
+/*ul{*/
+/*    background: gray;*/
+/*}*/
+
+ul li{
+    height: 30px;
+    list-style: none;
+    text-indent: 1em;
+}
+
+</code></pre>
+<h2 id="37-背景">3.7、背景</h2>
+<p>背景颜色</p>
+<p>背景图片</p>
+<pre><code class="language-css">&lt;style&gt;
+div{
+  width: 500px;
+  height: 300px;
+  border:1px solid red;
+  background-image:url(&quot;images/2.png&quot;) ;
+}
+.div1{
+  background-repeat: repeat-x;
+}
+
+.div2{
+  background-repeat: repeat-y;
+}
+.div3{
+  background-repeat: no-repeat;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="38-渐变">3.8、渐变</h2>
+<pre><code class="language-css">background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+</code></pre>
+<h1 id="4盒子模型">4.盒子模型</h1>
+<h2 id="41-什么是盒子">4.1、什么是盒子</h2>
+<figure data-type="image" tabindex="3"><img src="http://img.yanjiemao.top/image-20200822134547100.png" alt="image-20200822134547100" loading="lazy"></figure>
+<p>margin:外边距</p>
+<p>padding：内边距</p>
+<p>border:边框</p>
+<h2 id="42-边框">4.2、边框</h2>
+<ol>
+<li>边框的粗细</li>
+<li>边框的样式</li>
+<li>边框的颜色</li>
+</ol>
+<pre><code class="language-css">h1,ul,li,a,body{
+  margin:0;
+  padding:0;
+  text-decoration: none;
+}
+#box{
+  width: 300px;
+  border:1px solid red;
+}
+h2{
+  background: aqua;
+  font-size: 16px;
+  line-height: 30px;
+  margin: 0;
+}
+form{
+  background: #1dd2bd;
+}
+div:nth-of-type(2) input{
+  border: 3px solid #56aa88;
+}
+</code></pre>
+<h2 id="43-内外边距">4.3、内外边距</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;!--
+外边距的妙用：居中元素
+margin:0
+--&gt;
+    &lt;style&gt;
+      h1,ul,li,a,body{
+        margin:0;
+        padding:0;
+        text-decoration: none;
+      }
+      #box{
+        width: 300px;
+        border:1px solid red;
+      }
+      /*顺时针旋转
+      margin: 0 1px 2px 3px
+      */
+
+      h2{
+        background: aqua;
+        font-size: 16px;
+        line-height: 30px;
+        margin: 0;
+      }
+      form{
+        background: #1dd2bd;
+      }
+      div:nth-of-type(2) input{
+        border: 3px solid #56aa88;
+        padding:10px;
+      }
+
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div id=&quot;box&quot;&gt;
+      &lt;h2&gt;会员登录&lt;/h2&gt;
+      &lt;form action=&quot;#&quot;&gt;
+        &lt;div&gt;
+          &lt;span&gt;用户名:&lt;/span&gt;
+          &lt;input type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;span&gt;密码:&lt;/span&gt;
+          &lt;input type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;span&gt;邮箱:&lt;/span&gt;
+          &lt;input type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+
+      &lt;/form&gt;
+
+
+    &lt;/div&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>盒子的计算方式：你这个元素究竟有多大？</p>
+<img src="http://img.yanjiemao.top/image-20200823095308419.png" alt="image-20200823095308419" style="zoom:80%;" />
+<p>margin+border+padding+内容宽度</p>
+<h2 id="44-圆角边框">4.4、圆角边框</h2>
+<p>4个角</p>
+<pre><code class="language-html">&lt;style&gt;
+  div{
+    width:100px;
+    height: 100px;
+    border:10px solid red;
+    border-radius: 100px;
+  }
+&lt;/style&gt;
+</code></pre>
+<h2 id="45-盒子阴影">4.5、盒子阴影</h2>
+<pre><code class="language-css">div{
+  width:100px;
+  height: 100px;
+  border:10px solid red;
+  border-radius: 60px;
+  margin: 0 auto;
+  box-shadow: 10px 10px 60px yellow;
+}
+</code></pre>
+<h1 id="5浮动">5.浮动</h1>
+<h2 id="51-标准文档流">5.1、标准文档流</h2>
+<figure data-type="image" tabindex="4"><img src="http://img.yanjiemao.top/image-20200823105344842.png" alt="image-20200823105344842" loading="lazy"></figure>
+<p>块级元素：独占一行</p>
+<pre><code class="language-html">h1-h6 p div 列表···
+</code></pre>
+<p>行内元素：不独占一行</p>
+<pre><code class="language-html">span a img strong···
+</code></pre>
+<p>行内元素可以被包含在块级元素中，反之不可以</p>
+<h2 id="52-display">5.2、display</h2>
+<pre><code class="language-css">
+&lt;!--
+block 块元素
+inline 行内元素
+inline-block 是块元素，但是可以内联，在一行
+none 消失
+--&gt;
+&lt;style&gt;
+
+div{
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  display: inline;
+}
+span{
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  display: inline-block;
+}
+&lt;/style&gt;
+</code></pre>
+<p>这个也是一种实现行内元素排列的方式，但是我们很多情况情况都是用float</p>
+<h2 id="53-float">5.3、float</h2>
+<p>1、左右浮动 float</p>
+<pre><code class="language-css">div{
+  margin:10px;
+  padding:10px;
+}
+.layer1{
+  float:right;
+}
+
+.layer2{
+  float:left;
+}
+</code></pre>
+<h2 id="54-父级边框塌陷的问题">5.4 、父级边框塌陷的问题</h2>
+<blockquote>
+<p>解决方案</p>
+</blockquote>
+<p>1.增加父级元素的高度</p>
+<pre><code class="language-CSS">#father{
+  border:1px #000 solid;
+  height: 800px;
+}
+</code></pre>
+<p>2.增加一个空的div标签，清除浮动</p>
+<pre><code class="language-css">&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+.clear{
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+</code></pre>
+<p>3.overflow</p>
+<pre><code class="language-css">在父级元素中增加一个 overflow：hidden;
+</code></pre>
+<p>4、父类增加一个伪类</p>
+<pre><code class="language-css">#father:after{
+  content: '';
+  dispaly: block;
+  clear:both;
+}
+</code></pre>
+<p>小结：</p>
+<ol>
+<li>浮动元素后面增加空div</li>
+</ol>
+<ul>
+<li>简单，代码中尽量避免空div</li>
+</ul>
+<ol start="2">
+<li>
+<p>设置父元素高度</p>
+<p>简单，元素假设有了固定的高度，就会被限制</p>
+</li>
+<li>
+<p>overflow</p>
+<p>简单，下拉的一些场景，避免使用</p>
+</li>
+<li>
+<p>父类添加一个伪类：after(<strong>推荐</strong>)</p>
+</li>
+</ol>
+<h2 id="55-对比">5.5、对比</h2>
+<ul>
+<li>
+<p>display</p>
+<p>方向不可以控制</p>
+</li>
+<li>
+<p>float</p>
+<p>浮动起来的话会脱离标准文档流，所以要解决父级边框塌陷的问题</p>
+</li>
+</ul>
+<h1 id="6定位">6.定位</h1>
+<h2 id="61-相对定位">6.1、相对定位</h2>
+<pre><code class="language-css">
+&lt;!--相对定位
+相对于自己原来的位置进行偏移
+--&gt;
+&lt;style&gt;
+body{
+  padding: 20px;
+}
+div{
+  margin: 10px;
+  padding: 5px;
+  font-size: 12px;
+  line-height: 25px;
+}
+#father{
+  border: 1px solid red;
+}
+#first{
+  background: green;
+  border: 1px dashed blue;
+  position: relative; /*相对定位*/
+  top: -20px;
+  left: 20px
+}
+#second{
+  background: aqua;
+  border: 1px dashed blue;
+}
+#third{
+  background: green;
+  border: 1px dashed blue;
+  position: relative;
+  bottom: 10px;
+  right: 20px;
+}
+&lt;/style&gt;
+</code></pre>
+<p>相对定位：positionl: relative;</p>
+<p>相对于原来的位置，进行指定的偏移,相对定位仍然在标准文档流中，原来的位置会被保留</p>
+<pre><code>top: -20px;
+left: 20px;
+bottom: -10px;
+right: 20px;
+</code></pre>
+<h2 id="62-绝对定位">6.2、绝对定位</h2>
+<p>定位：基于xxx定位，上下左右</p>
+<ol>
+<li>没有父级元素定位的前提下，相对于浏览器定位</li>
+<li>假设父级元素存在定位，我们通常会相对于父级元素进行偏移</li>
+<li>在父级元素范围内移动，相对于父级或浏览器的位置，进行指定的偏移，绝对定位的话，它不在标准文档流中，原来的位置不会被保留。</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+
+    
+    &lt;style&gt;
+        body{
+            padding: 20px;
+        }
+        div{
+            margin: 10px;
+            padding: 5px;
+            font-size: 12px;
+            line-height: 25px;
+        }
+        #father{
+            border: 1px solid red;
+        }
+        #first{
+            background: green;
+            border: 1px dashed blue;
+
+        }
+        #second{
+            background: aqua;
+            border: 1px dashed blue;
+            position: absolute;
+            right: 30px;
+        }
+        #third{
+            background: green;
+            border: 1px dashed blue;
+
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;father&quot;&gt;
+    &lt;div id=&quot;first&quot;&gt;1&lt;/div&gt;
+    &lt;div id=&quot;second&quot;&gt;2&lt;/div&gt;
+    &lt;div id=&quot;third&quot;&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<h2 id="63-固定定位">6.3、固定定位</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+
+    &lt;style&gt;
+      body{
+        height: 1000px;
+
+      }
+      div:nth-of-type(1){  /*绝对定位：相对于浏览器*/
+        width:100px;
+        height: 100px;
+        background: green;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+      }
+
+      div:nth-of-type(2){/*fixed,固定定位*/
+        width:50px;
+        height: 50px;
+        background: yellow;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;div&gt;div1&lt;/div&gt;
+    &lt;div&gt;div2&lt;/div&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="64-z-index">6.4、z-index</h2>
+<img src="http://img.yanjiemao.top/image-20200823193345111.png" alt="image-20200823193345111" style="zoom: 67%;" />
+<p>图层~</p>
+<p>z-index默认为0，最高999</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&quot;content&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;img src=&quot;images/1.jpg&quot; alt=&quot;&quot; &lt;/li&gt;
+        &lt;li class=&quot;tipText&quot;&gt;冷兔宝宝&lt;/li&gt;
+        &lt;li class=&quot;tipBg&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;时间： 2020-01-01&lt;/li&gt;
+        &lt;li&gt;地点；天津&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>opacity: 0.1; /<em>背景透明度</em>/</p>
+<pre><code class="language-css">#content{
+  width: 350px;
+  padding:0px;
+  margin: 0px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height:25px;
+  border: 1px solid red;
+
+}
+
+ui,li{
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+/*父级元素相对定位*/
+
+#content ul{
+  position: relative;
+}
+
+.tipText, .tipBg{
+  position: absolute;
+  width: 380px;
+  height: 25px;
+  top: 220px;
+}
+.tipText{
+  color: green;
+  /*z-index: 0;*/
+}
+.tipBg{
+  background: black;
+  opacity: 0.1; /*背景透明度*/
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#1%E4%BB%80%E4%B9%88%E6%98%AFcss">1.什么是CSS</a>
+<ul>
+<li><a href="#11-%E4%BB%80%E4%B9%88%E6%98%AFcss">1.1、什么是CSS</a></li>
+<li><a href="#12-%E5%8F%91%E5%B1%95%E5%8F%B2">1.2、发展史</a></li>
+<li><a href="#13-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8">1.3 、快速入门</a></li>
+<li><a href="#14-css%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%AF%BC%E5%85%A5%E6%96%B9%E5%BC%8F">1.4 、CSS的四种导入方式</a><br>
+*
+<ul>
+<li><a href="#%E5%8C%BA%E5%88%AB">区别</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2%E9%80%89%E6%8B%A9%E5%99%A8">2.选择器</a>
+<ul>
+<li><a href="#21-%E5%9F%BA%E6%9C%AC%E9%80%89%E6%8B%A9%E5%99%A8">2.1、基本选择器</a></li>
+<li><a href="#22-%E5%B1%82%E6%AC%A1%E9%80%89%E6%8B%A9%E5%99%A8">2.2、层次选择器</a></li>
+<li><a href="#23-%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8">2.3、结构伪类选择器</a></li>
+<li><a href="#24-%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8%E5%B8%B8%E7%94%A8">2.4、属性选择器（常用）</a></li>
+</ul>
+</li>
+<li><a href="#3%E7%BE%8E%E5%8C%96%E7%BD%91%E9%A1%B5%E5%85%83%E7%B4%A0">3.美化网页元素</a>
+<ul>
+<li><a href="#31-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%BE%8E%E5%8C%96%E7%BD%91%E9%A1%B5">3.1、为什么要美化网页</a></li>
+<li><a href="#32-%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F">3.2、字体样式</a></li>
+<li><a href="#33-%E6%96%87%E6%9C%AC%E6%A0%B7%E5%BC%8F">3.3、文本样式</a></li>
+<li><a href="#34-%E9%98%B4%E5%BD%B1">3.4、阴影</a></li>
+<li><a href="#35-%E8%B6%85%E9%93%BE%E6%8E%A5%E4%BC%AA%E7%B1%BB">3.5、超链接伪类</a></li>
+<li><a href="#36-%E5%88%97%E8%A1%A8">3.6、列表</a></li>
+<li><a href="#37-%E8%83%8C%E6%99%AF">3.7、背景</a></li>
+<li><a href="#38-%E6%B8%90%E5%8F%98">3.8、渐变</a></li>
+</ul>
+</li>
+<li><a href="#4%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B">4.盒子模型</a>
+<ul>
+<li><a href="#41-%E4%BB%80%E4%B9%88%E6%98%AF%E7%9B%92%E5%AD%90">4.1、什么是盒子</a></li>
+<li><a href="#42-%E8%BE%B9%E6%A1%86">4.2、边框</a></li>
+<li><a href="#43-%E5%86%85%E5%A4%96%E8%BE%B9%E8%B7%9D">4.3、内外边距</a></li>
+<li><a href="#44-%E5%9C%86%E8%A7%92%E8%BE%B9%E6%A1%86">4.4、圆角边框</a></li>
+<li><a href="#45-%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1">4.5、盒子阴影</a></li>
+</ul>
+</li>
+<li><a href="#5%E6%B5%AE%E5%8A%A8">5.浮动</a>
+<ul>
+<li><a href="#51-%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81">5.1、标准文档流</a></li>
+<li><a href="#52-display">5.2、display</a></li>
+<li><a href="#53-float">5.3、float</a></li>
+<li><a href="#54-%E7%88%B6%E7%BA%A7%E8%BE%B9%E6%A1%86%E5%A1%8C%E9%99%B7%E7%9A%84%E9%97%AE%E9%A2%98">5.4 、父级边框塌陷的问题</a></li>
+<li><a href="#55-%E5%AF%B9%E6%AF%94">5.5、对比</a></li>
+</ul>
+</li>
+<li><a href="#6%E5%AE%9A%E4%BD%8D">6.定位</a>
+<ul>
+<li><a href="#61-%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D">6.1、相对定位</a></li>
+<li><a href="#62-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D">6.2、绝对定位</a></li>
+<li><a href="#63-%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D">6.3、固定定位</a></li>
+<li><a href="#64-z-index">6.4、z-index</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://www.jianso.tech/lab/post/HTML5/">
+              <h3 class="post-title">
+                HTML5
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">&nbspGridea&nbsp  </a>  On GitHub Pages
+  <a class="rss" href="https://www.jianso.tech/lab/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
